@@ -1,0 +1,11 @@
+matrix:
+  include:
+    - language: c
+      
+      before_install:
+      script:
+        - make cov
+        - make test
+        - make gencov
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
