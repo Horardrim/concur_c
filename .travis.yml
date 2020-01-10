@@ -3,6 +3,7 @@ matrix:
     - language: c
       
       before_install:
+        - sudo apt-get install -y valgrind
       script:
         - make cov
         - make test
