@@ -48,7 +48,7 @@ cov : LD_FLAGS += -fprofile-arcs -ftest-coverage
 cov : all
 
 test:
-	@valgrind --leak-check=full --show-reachable=yes -v ${BUILD_OUTPUT_DIR}/${TARGET} | tee valgrind.log
+	@valgrind --leak-check=full --show-reachable=yes -v ${BUILD_OUTPUT_DIR}/${TARGET} 2>&1 | tee valgrind.log
 	@grep "0 errors from 0 contexts" valgrind.log
 
 gencov:
