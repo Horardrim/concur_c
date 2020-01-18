@@ -3,6 +3,13 @@
 
 #include "task.h"
 
+struct task_node;
+struct task_queue;
+
+typedef void (* _clear_func)(struct task_queue *);
+typedef void (* _append_head_func)(struct task_queue *, task *);
+typedef void (* _append_tail_func)(struct task_queue *, task *);
+
 typedef struct task_node
 {
     task * _task;
@@ -13,14 +20,21 @@ typedef struct task_queue
 {
     task_node * _head;
     task_node * _tail;
+    unsigned int _size;
+
+    _clear_func clear;
+    _append_head_func append_head;
+    _append_tail_func append_tail;
 } task_queue;
 
-task_queue * init_task_queue();
+task_queue * _task_queue();
 
-void append_head(task_queue * target_queue, task * insert_task);
+void task_queue_(task_queue * queue);
+void _clear(task_queue * queue);
+void _append_head(task_queue * target_queue, task * insert_task);
+void _append_tail(task_queue * target_queue, task * insert_task);
 
-void append_tail(task_queue * target_queue, task * insert_task);
-
-void clear_queue(task_queue * target_queue);
+task_node * _task_node(task * incoming_task);
+void task_node_(task_node * node);
 
 #endif
