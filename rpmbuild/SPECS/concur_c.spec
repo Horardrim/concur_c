@@ -21,19 +21,19 @@ make
 %install
 mkdir -p $RPM_BUILD_ROOT/usr/libs/
 mkdir -p $RPM_BUILD_ROOT/usr/include/
-# install -D %_topdir/BUILD/matrix-c-%{version}/matrix_def.h $RPM_BUILD_ROOT/usr/include/matrix/matrix_def.h
-# install -D %_topdir/BUILD/output/libmatrix-c.so $RPM_BUILD_ROOT/usr/lib/libmatrix-c.so
-# install -D %_topdir/BUILD/output/libmatrix-c.so.%{version} $RPM_BUILD_ROOT/usr/lib/libmatrix-c.so.%{version}
+install -D %_topdir/BUILD/concur-c-%{version}/task.h $RPM_BUILD_ROOT/usr/include/concur/task.h
+install -D %_topdir/BUILD/concur-c-%{version}/task_queue.h $RPM_BUILD_ROOT/usr/include/concur/task_queue.h
+install -D %_topdir/BUILD/output/libconcur-c.so $RPM_BUILD_ROOT/usr/lib/libconcur-c.so
+install -D %_topdir/BUILD/output/libconcur-c.so.%{version} $RPM_BUILD_ROOT/usr/lib/libconcur-c.so.%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-# rm -rf /usr/lib/libmatrix-c.so
-# ln -s /usr/lib/libmatrix-c.so.%{version} /usr/lib/libmatrix-c.so
+rm -rf /usr/lib/libconcur-c.so
+ln -s /usr/lib/libconcur-c.so.%{version} /usr/lib/libconcur-c.so
 
 %files
-# /usr/include/matrix/*.h
-# /usr/lib/libmatrix-c.so.%{version}
-# /usr/lib/libmatrix-c.so
-
+/usr/include/concur/*.h
+/usr/lib/libconcur-c.so.%{version}
+/usr/lib/libconcur-c.so
