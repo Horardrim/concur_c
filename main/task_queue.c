@@ -4,7 +4,7 @@ task_queue * _task_queue()
 {
     task_queue * new_task_queue = (task_queue *)malloc(sizeof(task_queue));
 
-    if (new_task_queue)
+    if (new_task_queue == NULL)
     {
         return new_task_queue;
     }
