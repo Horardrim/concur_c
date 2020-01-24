@@ -12,8 +12,8 @@ typedef struct task
     task_handler  _handler;
 } task;
 
-task * create_task(void * task_param, task_handler handler);
+task * _task(void * task_param, task_handler handler);
 
-void destroy_task(task * task_to_destroy);
+void task_(task * task_to_destroy);
 
 #endif
