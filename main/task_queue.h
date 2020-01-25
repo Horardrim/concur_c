@@ -7,8 +7,8 @@ struct task_node;
 struct task_queue;
 
 typedef void (* _clear_func)(struct task_queue *);
-typedef void (* _append_head_func)(struct task_queue *, task *);
-typedef void (* _append_tail_func)(struct task_queue *, task *);
+typedef int (* _append_head_func)(struct task_queue *, task *);
+typedef int (* _append_tail_func)(struct task_queue *, task *);
 
 typedef struct task_node
 {
@@ -28,11 +28,7 @@ typedef struct task_queue
 } task_queue;
 
 task_queue * _task_queue();
-
 void task_queue_(task_queue * queue);
-void _clear(task_queue * queue);
-void _append_head(task_queue * target_queue, task * insert_task);
-void _append_tail(task_queue * target_queue, task * insert_task);
 
 task_node * _task_node(task * incoming_task);
 void task_node_(task_node * node);

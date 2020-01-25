@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:    concur-c
-Version: 1.0.0
+Version: 1.0.1
 Release: 1%{?dist}
 Summary: This package includes the implementation of multi-thread concurrency
 Group:   Applications/Internet
