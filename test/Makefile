@@ -11,7 +11,7 @@ CONCUR_LIB_OBJS := $(wildcard ../output/*.o)
 
 CFLAGS = -g -Wall -Werror
 INCLUDE_PATH = -I ..
-LD_FLAGS = 
+LD_FLAGS = -lpthread
 
 
 ifeq (${TEST_LIB_IN_LOCAL},)
